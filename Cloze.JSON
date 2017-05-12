@@ -1,0 +1,41 @@
+[
+	{
+		"front": "george washington was the first president",
+		"back": "george washington"	
+	},
+
+	{
+		"front": "John Adams was the second president",
+		"back": "John Adams"
+	},
+
+	{
+		"front": "John Elway played for the denver broncos",
+		"back": "John Elway"
+	},
+
+	{
+		"front": "James Comey was the FBI director that was fired by Donald Trump",
+		"back": "James Comey"
+	},
+
+	{
+		"front": "Founded in 1607, Jamestown was considered to be the first english settlement in the new world",
+		"back": "Jamestown"
+	},
+
+	{
+		"front": "Chopsticks originated in China",
+		"back": "China"
+	},
+
+	{
+		"front": "Julius Caesar was assasinated on the Ides of March",
+		"back": "Julius Caesar"
+	},
+
+	{
+		"front": "Pony Express is the name of the US Mail service started in 1860 that used horses and riders",
+		"back": "Pony Express"
+	}
+]

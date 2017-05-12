@@ -1,0 +1,21 @@
+[
+	{ "front": "Who was the first president?",
+		"back": "george washington"
+		
+	},
+
+	{
+		"front" : "Who was the second president",
+		"back" : "john adams"
+	},
+
+	{
+		"front": "who won two superbowls as Denver broncose starting QB",
+		"back": "JOhn elway"
+	},
+
+	{
+		"front": "Kobe Bryant won how many NBA Championships?",
+		"back": "5"
+	}
+]
