@@ -2,19 +2,12 @@ var Basic = require("./Basic");
 var Cloze = require("./ClozeCard");
 var inquirer = require("inquirer");
 var fs = require("fs");
-
+// count for recursion
 var count = 0;
+// to get number correct
 var score = 0;
-
-
-
-// Cloze.prototype.fullText  = this.text;
- var basicArray = [];
-
-// console.log("Question 2");
-// var qc1 = new Cloze("george washington was the first president", "george washington");
-// var qc2 = new Cloze("John Adams was the second president", "John Adams");
-// var qc3 = new Cloze("John Elway played for the denver broncos", "John Elway");
+// store questin objects
+var basicArray = [];
 var clozeArray = [];
 
 
@@ -35,15 +28,12 @@ inquirer.prompt([
 	]).then(function(answer){
 		if(answer.pick === "basic"){
 			basicAdd();
-			// basic(count);
 		} else{
 			clozeAdd();
 		}
 	});
 
 }
-
-
 	function basic(x){
 		if(x < basicArray.length){
 		inquirer.prompt([
@@ -54,6 +44,7 @@ inquirer.prompt([
 		}
 
 			]).then(function(answer){
+				// shows what the answer is 
 				if(answer.continue){
 					console.log(basicArray[x].back);
 				}
@@ -76,8 +67,7 @@ inquirer.prompt([
 
 			}
 				]).then(function(answer){
-					// console.log(answer.answer.toLowerCase());
-					// console.log(clozeArray[x].cloze.toLowerCase());
+					// takes answer to lower cast to compare.
 					if(answer.answer.toLowerCase() === clozeArray[x].cloze.toLowerCase()){
 						console.log("correct!\n" + clozeArray[x].fullText);
 						y++;
@@ -101,26 +91,20 @@ inquirer.prompt([
             cosole.log(err);
         } 
         var output = JSON.parse(data);
-        // console.log("WHAT???")
-        // console.log(output);
         for(var i = 0; i < output.length; i++){
  		var BasicQuestion = new Basic(output[i].front, output[i].back);
  		basicArray.push(BasicQuestion);
     	}
-        // console.log(basicArray);
         basic(count);
     	});
 	}
-
+		// adds the questions to the array
 		function clozeAdd(){
 		fs.readFile("Cloze.JSON", "utf8", function(err, data) {
-        // Break the string down by comma separation and store the contents into the output array.
         if (err) {
             cosole.log(err);
         } 
         var output = JSON.parse(data);
-        // console.log("WHAT???")
-        // console.log(output);
         for(var i = 0; i < output.length; i++){
  		var clozeQuestion = new Cloze(output[i].front, output[i].back);
  		clozeArray.push(clozeQuestion);
@@ -129,10 +113,9 @@ inquirer.prompt([
         cloze(count, score);
     	});
 	}
-
+	// play game again
 	function ask(){
 					inquirer.prompt([
-
 				{
 					type: "confirm",
 					name: "confirmed",
@@ -144,6 +127,8 @@ inquirer.prompt([
 							play();
 							score = 0;
 							count = 0;
+							basicArray = [];
+							clozeArray = [];
 						} else{
 							console.log("have fun!")
 						}
